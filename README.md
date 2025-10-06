@@ -52,6 +52,18 @@ CLI — Scan in Terminal
 - Local dev: node packages/cli/dist/index.js "./src"
 - Run without global install: npx -p baseline-guard-cli baseline-guard "./src"
 - Run scan: baseline-guard "./src" --baseline 2025 --format text
+- Or show help: baseline-guard -h
+- Help output:
+  - Usage: baseline-guard [options] <paths...>
+  - Scan codebase for non-Baseline web features
+  - Arguments:
+    - paths                    Paths or globs to scan
+  - Options:
+    - -V, --version            output the version number
+    - -f, --format <format>    output format: text|json (default: "text")
+    - -b, --baseline <year>    Baseline year threshold (default: "2025")
+    - -i, --ignore <globs...>  Globs to ignore from scanning (default: [])
+    - -h, --help               display help for command
 - Supported files auto-detected across JS/TS/CSS/HTML and common frameworks
 
 GitHub Action — CI Enforcement
@@ -75,6 +87,7 @@ Publish Guide
 Author & Contact
 - Author: Raiyan Siddique
 - Email: raiyansiddique1801@gmail.com
+- Repo: https://github.com/raiyansiddz/baseline-guard
 
 Publish
 - npm (CLI): cd packages/cli && npm publish --access public
