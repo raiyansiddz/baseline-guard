@@ -1,0 +1,49 @@
+{
+  "name": "baseline-guard-cli",
+  "version": "1.0.1",
+  "description": "CLI tool to scan codebases for non-Baseline web features",
+  "keywords": [
+    "cli",
+    "baseline",
+    "web-features",
+    "scanner",
+    "codebase",
+    "browser-compatibility",
+    "web",
+    "css",
+    "html",
+    "static-analysis"
+  ],
+  "bin": {
+    "baseline-guard": "dist/index.js"
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "author": "Raiyan Siddique <raiyansiddique1801@gmail.com>",
+  "license": "MIT",
+  "repository": { "type": "git", "url": "https://github.com/raiyanz/baseline-guard.git" },
+  "publishConfig": { "access": "public" },
+  "scripts": {
+    "build": "tsc -p ./",
+    "clean": "rimraf dist",
+    "test": "tsc -p ./",
+    "dev": "tsc -p ./ -w"
+  },
+  "dependencies": {
+    "web-features": "^2.0.0",
+    "@babel/parser": "^7.25.0",
+    "@babel/traverse": "^7.25.0",
+    "chalk": "^5.3.0",
+    "glob": "^10.3.0",
+    "commander": "^11.0.0",
+    "baseline-guard-core": "^1.0.1"
+  },
+  "devDependencies": {
+    "typescript": "^5.3.0",
+    "rimraf": "^5.0.0",
+    "vitest": "^1.5.0",
+    "@types/glob": "^8.0.0",
+    "@types/babel__traverse": "^7.20.5",
+    "@types/node": "^20.8.0"
+  }
+}

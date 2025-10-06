@@ -1,0 +1,13 @@
+name: Baseline Guard
+on: [push, pull_request]
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+      - run: npm ci
+      - run: npm run build --workspaces
+      - run: node packages/cli/dist/index.js ./src --baseline=2025 --format=text

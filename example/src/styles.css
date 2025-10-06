@@ -1,0 +1,13 @@
+/* CSS demo: :has() pseudo-class to trigger baseline warnings */
+.card:has(.danger) {
+  outline: 3px solid red;
+}
+
+/* Dialog styling */
+dialog {
+  border: 1px solid #888;
+  padding: 1rem;
+}
+dialog::backdrop {
+  background: rgba(0,0,0,0.25);
+}

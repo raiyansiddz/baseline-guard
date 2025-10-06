@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Baseline Guard Demo</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <h1>Baseline Guard Demo (HTML)</h1>
+
+    <!-- Non-Baseline features to trigger warnings -->
+    <!-- 1) <dialog> element and showModal() -->
+    <dialog id="demoDialog">
+      <p>Hello from dialog</p>
+      <button id="closeBtn">Close</button>
+    </dialog>
+    <button id="openBtn">Open Dialog</button>
+
+    <!-- 2) inert attribute (Element.inert) -->
+    <div id="inertZone" inert>
+      <p>This area is inert (should be flagged).</p>
+      <button>This button is not interactive due to inert.</button>
+    </div>
+
+    <script>
+      const dlg = document.getElementById('demoDialog');
+      document.getElementById('openBtn').addEventListener('click', () => dlg.showModal());
+      document.getElementById('closeBtn').addEventListener('click', () => dlg.close());
+
+      // Using Element.inert via JS API
+      document.body.inert = true;
+      setTimeout(() => { document.body.inert = false; }, 500);
+
+      // Intl.Segmenter (new API)
+      const seg = new Intl.Segmenter('en', { granularity: 'word' });
+      const input = 'Hello judges, baseline check me!';
+      for (const { segment } of seg.segment(input)) {
+        console.log('Segment:', segment);
+      }
+    </script>
+  </body>
+</html>

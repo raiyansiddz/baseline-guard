@@ -1,0 +1,35 @@
+{
+  "name": "baseline-guard-core",
+  "version": "1.0.1",
+  "description": "Shared core logic for Baseline Guard (types and feature checking)",
+  "keywords": [
+    "baseline",
+    "web-features",
+    "browser-compatibility",
+    "compatibility",
+    "static-analysis",
+    "feature-detection",
+    "web",
+    "css",
+    "html",
+    "typescript"
+  ],
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "author": "Raiyan Siddique <raiyansiddique1801@gmail.com>",
+  "license": "MIT",
+  "repository": { "type": "git", "url": "https://github.com/raiyanz/baseline-guard.git" },
+  "publishConfig": { "access": "public" },
+  "scripts": {
+    "build": "tsc -p ./",
+    "clean": "rimraf dist",
+    "test": "tsc -p ./"
+  },
+  "dependencies": {
+    "web-features": "^2.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.3.0",
+    "rimraf": "^5.0.0"
+  }
+}

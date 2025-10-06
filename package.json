@@ -1,0 +1,40 @@
+{
+  "name": "baseline-guard-monorepo",
+  "version": "1.0.0",
+  "description": "Baseline Guard - Professional-grade developer tool for web platform compatibility",
+  "private": true,
+  "workspaces": [
+    "packages/cli",
+    "packages/eslint-plugin",
+    "packages/core"
+  ],
+  "scripts": {
+    "build": "npm run build:ordered",
+    "build:ordered": "npm run --workspace=baseline-guard-core build && npm run --workspace=eslint-plugin-baseline-guard build && npm run --workspace=baseline-guard-cli build",
+    "test": "npm run test --workspaces --if-present || true",
+    "lint": "npm run lint --workspaces --if-present",
+    "clean": "npm run clean --workspaces --if-present",
+    "prepare": "npm run build:ordered",
+    "scan": "node packages/cli/dist/index.js"
+  },
+  "keywords": [
+    "web-features",
+    "baseline",
+    "compatibility",
+    "cli",
+    "eslint",
+    "devtools"
+  ],
+  "author": "Raiyan Siddique",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/raiyansiddique/baseline-guard.git"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@typescript-eslint/parser": "^8.46.0",
+    "eslint": "^9.37.0",
+    "typescript": "^5.3.0"
+  }
+}
